@@ -16,7 +16,6 @@ from kafka import KafkaProducer
 logging.basicConfig(level=logging.INFO)
 _logger = logging.getLogger('asyncua')
 
-
 class SubHandler(object):
     # Subscription Handler.
     def datachange_notification(self, node, val, data):
@@ -24,7 +23,6 @@ class SubHandler(object):
 
     def event_notification(self, event):
         print("New event", event)
-
 
 async def main():
     # Connect with opc-ua server
@@ -34,7 +32,6 @@ async def main():
     # Create a Kafka Producer
     producer = KafkaProducer(bootstrap_servers='localhost:9092')
     
-    
     async with client:
 
         uri = 'http://pjs.uni-wue.de/server_output'
@@ -42,7 +39,6 @@ async def main():
  
         varDateTime = await client.nodes.root.get_child(["0:Objects", f"{idx}:SEHO Sensors", f"{idx}:dateTime"])
         varOutput = await client.nodes.root.get_child(["0:Objects", f"{idx}:SEHO Sensors", f"{idx}:output (kWh)"])
-
         
         # subscribing to a variable node
         handler = SubHandler()
@@ -53,7 +49,6 @@ async def main():
         
         # subscribe to events from server
         await sub.subscribe_events()
-
         
         while True:
             await asyncio.sleep(1)
