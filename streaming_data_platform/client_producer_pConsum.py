@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Sep  9 15:28:35 2022
-
-@author: nilsheilemann
-"""
 import asyncio
 import logging
 import pandas as pd
@@ -34,7 +27,7 @@ class SubHandler(object):
 
 async def main():
     # Connect with opc-ua server
-    url = 'opc.tcp://0.0.0.0:4840/opcua/server_pConsum/'
+    url = 'opc.tcp://0.0.0.0:4844/opcua/server_pConsum/'
     client = Client(url=url)
 
     # Create a Kafka Producer
@@ -42,7 +35,7 @@ async def main():
 
     async with client:
 
-        uri = 'http://pjs.uni-wue.de/opcua/server_pConsum/'
+        uri = 'http://pjs.uni-wue.de'
         idx = await client.get_namespace_index(uri)
  
         varDateTime = await client.nodes.root.get_child(["0:Objects", f"{idx}:SEHO Sensors", f"{idx}:dateTime"])

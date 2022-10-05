@@ -29,7 +29,7 @@ async def main():
     
     # populating our address space
     # server.nodes, contains links to very common nodes like objects and root
-    obj = await server.nodes.objects.add_object(idx, 'PV system')
+    obj = await server.nodes.objects.add_object(idx, 'SEHO Sensors')
     varDateTime = await obj.add_variable(idx, 'dateTime', 0, ua.VariantType.String)
     varOutput = await obj.add_variable(idx, 'output (kWh)', 0, ua.VariantType.Double)
     

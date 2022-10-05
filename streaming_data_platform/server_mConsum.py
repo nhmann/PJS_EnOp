@@ -16,7 +16,7 @@ async def main():
     # setup our server
     server = Server()
     await server.init()
-    server.set_endpoint('opc.tcp://0.0.0.0:4840/opcua/server_mConsum/')
+    server.set_endpoint('opc.tcp://0.0.0.0:4842/opcua/server_mConsum/')
 
     # setup our own namespace, not really necessary but should as spec
     uri = 'http://pjs.uni-wue.de'

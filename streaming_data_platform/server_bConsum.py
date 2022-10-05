@@ -16,7 +16,7 @@ async def main():
     # setup our server
     server = Server()
     await server.init()
-    server.set_endpoint('opc.tcp://0.0.0.0:4840/opcua/server_bConsum/')
+    server.set_endpoint('opc.tcp://0.0.0.0:4841/opcua/server_bConsum/')
 
     # setup our own namespace, not really necessary but should as spec
     uri = 'http://pjs.uni-wue.de'
@@ -31,7 +31,7 @@ async def main():
     # server.nodes, contains links to very common nodes like objects and root
     obj = await server.nodes.objects.add_object(idx, 'SEHO Sensors')
     varDateTime = await obj.add_variable(idx, 'dateTime', 0, ua.VariantType.String)
-    varBConsum = await obj.add_variable(idx, 'basicConsumption (kWh)', 0, ua.VariantType.Double
+    varBConsum = await obj.add_variable(idx, 'basicConsumption (kWh)', 0, ua.VariantType.Double)
     
     # Set Variables to be writable by clients
     await varDateTime.set_writable()

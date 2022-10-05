@@ -26,7 +26,7 @@ class SubHandler(object):
 
 async def main():
     # Connect with opc-ua server
-    url = 'opc.tcp://0.0.0.0:4840/opcua/server_mConsum/'
+    url = 'opc.tcp://0.0.0.0:4842/opcua/server_mConsum/'
     client = Client(url=url)
 
     # Create a Kafka Producer
