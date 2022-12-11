@@ -1,6 +1,6 @@
 # PJS_EnOp
 
-##How to: streaming-data-platform start-up
+## How to: streaming-data-platform start-up
 To start the streaming-data-platform make shure that docker is running with the kafka container.
 
 ### set-up Kafka
